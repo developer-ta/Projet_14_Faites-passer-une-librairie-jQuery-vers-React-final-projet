@@ -1,0 +1,64 @@
+// .main-AddEmployee {
+//   height: 59em;
+//   margin-top: 8%;
+//   background-image: 1040px;
+//   width: 100%;
+//   background: lightgray;
+//   position: relative;
+//   top: 0%;
+// }
+fieldset.address {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 85%;
+  box-shadow: #f0f0f0 0px 3px 6px 0px;
+  align-items: center;
+  border-width: initial;
+  border-style: initial;
+  border-color: rgba(255, 127, 80, 0);
+  border-image: initial;
+  border-radius: 8px;
+  background: #2f6ad585;
+  /* transform: scale(0.9); */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  input {
+    padding: 6.5px 14px;
+  }
+  .inputLabel {
+    color: white;
+    font-weight: 700;
+  }
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 10px;
+}
+
+.address {
+  margin-top: 10px;
+}
+form#create-employee {
+  width: 51%;
+  background: #6495ed;
+  box-shadow: 0 1px 6px 0px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  height: 69%;
+}
+legend {
+  color: white;
+  font-weight: 700;
+}

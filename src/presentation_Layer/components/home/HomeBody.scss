@@ -1,0 +1,26 @@
+.main-homeBody {
+  height: 57em;
+  margin: 0;
+  background-image: url('/src/presentation_Layer/assets/img/HomeBody bgImg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 1040px;
+  background-attachment: fixed;
+}
+.home-title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+  top: 12%;
+  p {
+    font-weight: bold;
+    font-size: 40px;
+    color: #630cfa;
+    height: 96px;
+    width: 80%;
+  }
+}
