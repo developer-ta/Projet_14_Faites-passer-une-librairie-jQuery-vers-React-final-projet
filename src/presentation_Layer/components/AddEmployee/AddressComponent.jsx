@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import './AddEmployeeBody.scss';
 
-import 'react-datepicker/dist/react-datepicker.css';
-import { DatePickerComponent } from './DatePickerComponent';
+
 
 import 'dayjs/locale/fr';
 import { Autocomplete, Box, Button, Container, InputBase, TextField } from '@mui/material';

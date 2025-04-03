@@ -1,13 +1,11 @@
 import './AddEmployeeBody.scss';
 
-import 'react-datepicker/dist/react-datepicker.css';
-import { DatePickerComponent } from './DatePickerComponent';
-
-import { TextField } from '@mui/material';
+import { Button, IconButton, TextField } from '@mui/material';
 import { FormControl, InputLabel, Input } from '@mui/material';
 import { AddressComponent } from './AddressComponent';
 import { DepartmentSelectComponent } from './DepartmentSelectComponent';
-
+import { DatePickerComponent } from './DatePickerComponent';
+import { Save } from '@mui/icons-material';
 
 const textFieldStyle = {
   backgroundColor: 'whitesmoke',
@@ -30,6 +28,14 @@ export default function AddEmployeeBody() {
       {/* <div id="confirmation" className="modal">
         Employee Created!
       </div> */}
+      <Button
+        variant="contained"
+        onClick={() => {}}
+        sx={{ marginTop: '10px',width:'130px', fontSize:'19px'}}
+        startIcon={<Save></Save>}
+      >
+        Save
+      </Button>
     </main>
   );
 }
