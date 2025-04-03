@@ -19,7 +19,7 @@ const textFieldStyle = {
 export default function AddEmployeeBody() {
   return (
     <main className="main-AddEmployee container">
-      <h3>AddEmployeeBody</h3>
+      <h3>Create Employee</h3>
       <form action="#" id="create-employee">
         <TextField id="first-name" placeholder="First Name" size="small" sx={textFieldStyle} />
         <TextField id="last-name" placeholder="Last Name" size="small" sx={textFieldStyle} />
