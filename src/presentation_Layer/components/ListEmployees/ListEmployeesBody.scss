@@ -7,3 +7,29 @@
 //   position: relative;
 //   top: 0%;
 // }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+
+  .center-header {
+    text-align: center;
+  }
+  .MuiDataGrid-columnHeaderTitleContainer {
+    justify-content: center;
+  }
+  .MuiDataGrid-columnHeaderTitle.css-1gqmilo-MuiDataGrid-columnHeaderTitle {
+    font-weight: 600;
+  }
+  .MuiDataGrid-cell.MuiDataGrid-cell--textRight {
+    text-align: center;
+  }
+  .MuiDataGrid-cell.MuiDataGrid-cell--textLeft {
+    text-align: center;
+  }
+  .MuiDataGrid-columnHeader.MuiDataGrid-columnHeader--alignRight.MuiDataGrid-columnHeader--sortable.MuiDataGrid-columnHeader--numeric.MuiDataGrid-withBorderColor {
+    flex: 1;
+}
+}

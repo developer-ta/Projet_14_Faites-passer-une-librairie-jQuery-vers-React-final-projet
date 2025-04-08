@@ -33,11 +33,13 @@ export const DatePickerComponent = () => {
       <DatePicker
         // label="Dash separator"
         // value={date}
+
+        renderInput={(params) => <TextField {...params} required />}
         format="DD/MM/YYYY"
         // defaultValue={dayjs(new Date())}
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
-        slotProps={{ textField: { placeholder: 'start-date' } }}
+        slotProps={{ textField: { placeholder: 'start-date', required: true } }}
       />
     </LocalizationProvider>
   );
