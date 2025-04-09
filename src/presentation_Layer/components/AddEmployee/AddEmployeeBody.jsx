@@ -8,6 +8,7 @@ import { DatePickerComponent } from './DatePickerComponent';
 import { Save } from '@mui/icons-material';
 import { Modal } from 'tui-react-bib/src/component/index.jsx';
 import useEmployee from '../../hooks/useEmployee';
+import EmployeeProfile from '../../../domain_Layer/employee';
 
 const textFieldStyle = {
   backgroundColor: 'whitesmoke',
@@ -25,9 +26,7 @@ export default function AddEmployeeBody() {
         action="#"
         id="create-employee"
         onSubmit={(e) => {
-          console.log(' e.target.elements: ', e.target.elements);
-          console.log(' e.target.elements[15]: ', e.target.elements[15].value);
-          console.log(' e.target.elements[1]: ', e.target.elements[1].validity.valid);
+          setProfile(e);
         }}
       >
         <TextField
@@ -38,14 +37,13 @@ export default function AddEmployeeBody() {
           placeholder="First Name"
           size="small"
           sx={textFieldStyle}
-          onChange={(val) => console.log(val.target.value)}
+          // onChange={(val) => console.log(val.target.value)}
         />
 
         <TextField
-         error
+          error
           helperText={''}
           required
-         
           id="last-name"
           placeholder="Last Name"
           size="small"

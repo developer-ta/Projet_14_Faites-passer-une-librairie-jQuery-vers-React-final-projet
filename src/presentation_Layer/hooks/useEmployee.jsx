@@ -25,8 +25,9 @@ export default function useEmployee() {
   //   }, []);
 
   //application layer
-  const setProfile = useCallback( (formData) => {
-    console.log('formData: ', formData);
+  const setProfile = useCallback((e) => {
+    const newEmployee = profileService.getValuesInput(e);
+    const validationInfo = profileService.checkInput(newEmployee);
 
     // loginData.passWord = formLoginData.password.value;
     // loginData.email = formLoginData.username.value;
