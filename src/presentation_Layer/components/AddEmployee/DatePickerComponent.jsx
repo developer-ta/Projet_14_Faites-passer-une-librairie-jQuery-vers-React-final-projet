@@ -5,6 +5,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import 'dayjs/locale/fr';
+import { TextField } from '@mui/material';
 
 const textFieldStyle = {
   backgroundColor: 'whitesmoke',
@@ -28,18 +29,18 @@ export const DatePickerComponent = () => {
         // defaultValue={dayjs(new Date())}
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
-        slotProps={{ textField: { placeholder: 'Date of Birth', color: 'black' } }}
+        slotProps={{ textField: { placeholder: 'Date of Birth', color: 'black',required: true ,error:true,helperText:'' } }}
       />
       <DatePicker
         // label="Dash separator"
         // value={date}
 
-        renderInput={(params) => <TextField {...params} required />}
+        renderInput={(params) => <TextField  {...params} required />}
         format="DD/MM/YYYY"
         // defaultValue={dayjs(new Date())}
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
-        slotProps={{ textField: { placeholder: 'start-date', required: true } }}
+        slotProps={{ textField: { placeholder: 'start-date', required: true ,error:true} }}
       />
     </LocalizationProvider>
   );

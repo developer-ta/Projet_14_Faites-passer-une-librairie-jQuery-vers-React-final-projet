@@ -44,10 +44,11 @@ form#create-employee {
   box-shadow: 0 1px 6px 0px;
   border-radius: 8px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  height: 68%;
   align-items: center;
-  height: 69%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 legend {
   color: white;
@@ -55,6 +56,6 @@ legend {
 }
 @media screen and (min-width: 769px) {
   form#create-employee {
-    width: 29%;
+    width: 35%;
   }
 }

@@ -31,8 +31,8 @@ export default function AddEmployeeBody() {
         }}
       >
         <TextField
-          error={isFirstNameValid}
-          helperText
+          error
+          helperText={''}
           required
           id="first-name"
           placeholder="First Name"
@@ -40,9 +40,12 @@ export default function AddEmployeeBody() {
           sx={textFieldStyle}
           onChange={(val) => console.log(val.target.value)}
         />
+
         <TextField
+         error
+          helperText={''}
           required
-          error
+         
           id="last-name"
           placeholder="Last Name"
           size="small"
@@ -52,7 +55,6 @@ export default function AddEmployeeBody() {
         <AddressComponent />
         <DepartmentSelectComponent />
         <Modal></Modal>
-
         <Button
           variant="contained"
           type="submit"

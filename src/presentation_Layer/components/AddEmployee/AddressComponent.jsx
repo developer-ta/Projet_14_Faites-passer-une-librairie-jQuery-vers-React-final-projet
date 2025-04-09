@@ -254,8 +254,8 @@ export const AddressComponent = () => {
   return (
     <fieldset className="address">
       <legend>Address</legend>
-      <TextField id="street" placeholder="Street" size="small" sx={textFieldStyle} />
-      <TextField id="city" placeholder="City" size="small" sx={textFieldStyle} />
+      <TextField error helperText={''} id="street" placeholder="Street" size="small" sx={textFieldStyle} />
+      <TextField error helperText={''} id="city" placeholder="City" size="small" sx={textFieldStyle} />
       <Box
         display={'flex'}
         justifyContent={'space-around'}
@@ -263,7 +263,7 @@ export const AddressComponent = () => {
         alignItems={'center'}
         flexDirection={'column'}
       >
-        <InputLabel className={'inputLabel'}>State</InputLabel>{' '}
+        <InputLabel  className={'inputLabel'}>State</InputLabel>
         <Autocomplete
           id="state"
           size="small"
