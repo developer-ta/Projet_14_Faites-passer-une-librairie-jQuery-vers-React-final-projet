@@ -18,11 +18,10 @@ const textFieldStyle = {
 };
 
 export default function AddEmployeeBody() {
-  console.log('-----------------------------------------------');
+
   const { setProfile, ValideFirstNameRes, ValideLastNameRes, ValideCityRes, ValideZipCodeRes } =
     useEmployee();
-  console.log('ValideZipCodeResooo: ', ValideZipCodeRes);
-  console.log('ValideCityResdddd: ', ValideCityRes);
+
 
   return (
     <main className="main-AddEmployee container">

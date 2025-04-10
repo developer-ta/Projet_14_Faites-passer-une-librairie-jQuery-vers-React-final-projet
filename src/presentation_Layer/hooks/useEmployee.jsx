@@ -8,22 +8,12 @@ import EmployeeProfile from '../../domain_Layer/employee';
 import { addEmployee } from '../../infrastructure_Layer/redux/slices/employee/employeeProfile';
 
 export default function useEmployee() {
-  const { employeeProfileList } = useSelector((state) => state.employeeProfileReducer);
+  const { employeeProfile } = useSelector((state) => state.employeeProfileReducer);
+
   const [ErrorValidation, setErrorValidation] = useState({});
 
   const dispatch = useDispatch();
-  const profileService = new employeeService(employeeProfileList, dispatch, new EmployeeProfile());
-
-  //   useEffect(() => {
-  //     const token = state || profileService.getToken();
-  //     if (token) {
-  //       const fetchData = async () => {
-  //         const res = await getUserAccount(token);
-  //         if (res) dispatch(setAccount(res));
-  //       };
-  //       fetchData();
-  //     }
-  //   }, []);
+  const profileService = new employeeService(employeeProfile, dispatch, new EmployeeProfile());
 
   //application layer
   const setProfile = useCallback((e) => {
@@ -32,53 +22,12 @@ export default function useEmployee() {
 
     if (errorValidationInfo) {
       setErrorValidation({ ...errorValidationInfo });
-  
+
       return;
     } else {
       console.log('start-----');
       profileService.addEmployeeToRedux(addEmployee, newEmployee);
     }
-
-    // loginData.passWord = formLoginData.password.value;
-    // loginData.email = formLoginData.username.value;
-    // loginData.isAuthMemo = formLoginData[2].checked;
-
-    // //check email
-    // isInvalidIdentifie = loginService.validateEmail(loginData.email);
-    // if (!isInvalidIdentifie || !loginData.email.trim()) {
-    //   setMessageInvalidEmail(
-    //     'Veuillez saisir une adresse email valide. Le champ ne peut pas être vide et doit respecter le format correct'
-    //   );
-    //   return;
-    // } else if (!loginData.passWord.trim()) {
-    //   setMessageInvalidEmail(
-    //     'Veuillez saisir une password valide. Le champ ne peut pas être vide !'
-    //   );
-    //   return;
-    // } else {
-    //   setMessageInvalidEmail((m) => (m = ''));
-    // }
-
-    // // check token
-    // const resToken = await loginService.getToken({
-    //   email: loginData.email,
-    //   password: loginData.passWord,
-    // });
-
-    // if (!resToken) {
-    //   setMessageInvalideIdentifie(
-    //     "L'adresse email ou le mot de passe ne peut pas être vide et doit être correct. Veuillez vérifier vos informations et réessayer."
-    //   );
-    //   return;
-    // } else {
-    //   loginData.token = resToken.body.token;
-    //   dispatch(setLogin({ ...loginData }));
-    //   setMessageInvalideIdentifie((m) => (m = ''));
-    //   loginService.toProfilePage(navigate, loginData.token);
-    // }
-    // if (loginData.isAuthMemo) {
-    //   loginService.persistToken(loginData.token);
-    // }
   }, []);
 
   return {

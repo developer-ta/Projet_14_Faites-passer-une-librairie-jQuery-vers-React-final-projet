@@ -6,7 +6,7 @@ export default class EmployeeProfile {
     this.dateOfBirth;
     this.startDate;
     this.street;
-    this.City;
+    this.city;
     this.zipCode;
     this.state;
     this.department;

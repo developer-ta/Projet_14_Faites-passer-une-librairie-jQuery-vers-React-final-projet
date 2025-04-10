@@ -22,8 +22,7 @@ export const DatePickerComponent = () => {
   const { ValideDateOfBirthRes, ValideStartDateRes } = useEmployee();
 
   const [date, setDate] = useState(null);
-  const [value, setValue] = useState(null);
-  console.log('DatePickerComponent');
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
       <DatePicker
@@ -47,9 +46,10 @@ export const DatePickerComponent = () => {
         // label="Dash separator"
         // value={date}
 
-        renderInput={(params) => <TextField {...params} required />}
+         renderInput={(params) => <TextField {...params} required />}
+     
         format="DD/MM/YYYY"
-        // defaultValue={dayjs(new Date())}
+   
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
         slotProps={{

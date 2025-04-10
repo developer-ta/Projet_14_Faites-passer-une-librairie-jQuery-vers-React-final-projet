@@ -17,10 +17,11 @@ export default class employeeService {
     this._model.dateOfBirth = formEvent.target.elements[4].value;
     this._model.startDate = formEvent.target.elements[7].value;
     this._model.street = formEvent.target.elements[11].value;
-    this._model.City = formEvent.target.elements[13].value;
+    this._model.city = formEvent.target.elements[13].value;
     this._model.state = formEvent.target.elements[15].value;
     this._model.zipCode = formEvent.target.elements[19].value;
-    this._model.department = formEvent.target.elements[20].value;
+    this._model.department = formEvent.target.elements[21].value;
+   
 
     return this._model;
   }
@@ -52,7 +53,7 @@ export default class employeeService {
   _validateInputZipCode(zipCode) {
     const pattern = /\d{5}/;
     const isNoValid = zipCode && pattern.test(zipCode) ? false : true;
-    console.log('isNoValid:zip ', isNoValid);
+ 
     if (isNoValid) {
       return {
         isNoValid,
@@ -69,7 +70,7 @@ export default class employeeService {
     const ValideStartDateRes = this._validateDate(newEmployeeData.startDate) || undefined;
     // ValideStateRes = this._validateInputText(newEmployeeData.state) || undefined;
     const ValideStreetRes = this._validateInputAddress(newEmployeeData.street) || undefined;
-    const ValideCityRes = this._validateInputText(newEmployeeData.City) || undefined;
+    const ValideCityRes = this._validateInputText(newEmployeeData.city) || undefined;
     const ValideZipCodeRes = this._validateInputZipCode(newEmployeeData.zipCode) || undefined;
     // ValideDepartmentRes = this._validateInputText(newEmployeeData.department) || undefined;
     if (

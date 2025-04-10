@@ -6,7 +6,7 @@ export default function Header() {
 
 
   const { pathname } = useLocation();
-  console.log('useLocation(): ', useLocation());
+
 
   return (
     <div className="header">
