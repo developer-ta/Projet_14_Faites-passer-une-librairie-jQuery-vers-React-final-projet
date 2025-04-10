@@ -1,10 +1,11 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import Prettier from 'eslint-plugin-prettier';
-import jsdoc from 'eslint-plugin-jsdoc';
+
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
+import eslintPluginPrettier from 'eslint-plugin-prettier';
+import eslintPluginJsdoc from 'eslint-plugin-jsdoc';
 
 export default [
   { ignores: ['dist'] },
@@ -19,19 +20,19 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '19.0' } },
+    settings: { react: { version: 'detect' } },
     plugins: {
-      react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      plugin: Prettier / recommended,
-      jsdoc,
+      react: eslintPluginReact,
+      'react-hooks': eslintPluginReactHooks,
+      'react-refresh': eslintPluginReactRefresh,
+      prettier: eslintPluginPrettier,
+      jsdoc: eslintPluginJsdoc,
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
-      ...reactHooks.configs.recommended.rules,
+      ...eslintPluginReact.configs.recommended.rules,
+      ...eslintPluginReact.configs['jsx-runtime'].rules,
+      ...eslintPluginReactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },

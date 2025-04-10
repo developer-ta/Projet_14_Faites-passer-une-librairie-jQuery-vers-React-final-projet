@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -21,7 +21,7 @@ const datePickerStyle = {
 export const DatePickerComponent = () => {
   const { ValideDateOfBirthRes, ValideStartDateRes } = useEmployee();
 
-  const [date, setDate] = useState(null);
+
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
@@ -30,7 +30,7 @@ export const DatePickerComponent = () => {
         // value={date}
         format="DD/MM/YYYY"
         // defaultValue={dayjs(new Date())}
-        onChange={(newDate) => setDate((d) => (d = newDate))}
+       
         sx={datePickerStyle}
         slotProps={{
           textField: {
@@ -43,14 +43,13 @@ export const DatePickerComponent = () => {
         }}
       />
       <DatePicker
-        // label="Dash separator"
-        // value={date}
+      
 
          renderInput={(params) => <TextField {...params} required />}
      
         format="DD/MM/YYYY"
    
-        onChange={(newDate) => setDate((d) => (d = newDate))}
+      
         sx={datePickerStyle}
         slotProps={{
           textField: {

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import './header.scss';
-import { useState } from 'react';
+
 
 export default function Header() {
 

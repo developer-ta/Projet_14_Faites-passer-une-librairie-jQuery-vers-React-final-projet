@@ -5,7 +5,7 @@ export default function HomeBody() {
     <main className='main-homeBody'>
       <div className="home-title">
         <p>
-          Welcome to HRnet! This is our company's internal application to create and view employee
+          Welcome to HRnet! This is our company&apos;s internal application to create and view employee
           records.
         </p>
       </div>

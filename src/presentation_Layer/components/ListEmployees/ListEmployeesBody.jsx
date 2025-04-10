@@ -2,7 +2,7 @@
 
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
@@ -57,29 +57,15 @@ const columns = [
   },
 ];
 
-const rows = [
-  {
-    id: 1,
-    lastName: 'Snow',
-    firstName: 'Jon',
-    startDate: 35,
-    department: 'dd',
-    street: '1 mail de Savoie',
-    city: 'Thiais',
-    state: 112,
-    zipCode: 94320,
-  },
-];
-
-const paginationModel = { page: 0, pageSize: 5 };
-
 export default function DataTable() {
   const { employeeProfile } = useSelector((state) => state.employeeProfileReducer);
 
-  const rowsConstructor = useCallback((list) =>
-    list.map((el, index) => {
-      return { ...el, id: `${index}-${el.firstName}-${el.lastName}-(${el.state})` };
-    })
+  const rowsConstructor = useCallback(
+    (list) =>
+      list.map((el, index) => {
+        return { ...el, id: `${index}-${el.firstName}-${el.lastName}-(${el.state})` };
+      }),
+    [employeeProfile]
   );
 
   console.log(' rowsConstructor(employeeProfile): ', rowsConstructor(employeeProfile));
@@ -103,7 +89,7 @@ export default function DataTable() {
           }}
           pageSizeOptions={[5]}
           getRowId={(row, index) => `${index}-${row.firstName}-${row.lastName}-(${row.state})`}
-           slots={{ toolbar: GridToolbar }}
+          slots={{ toolbar: GridToolbar }}
           slotProps={{
             toolbar: {
               showQuickFilter: true,
