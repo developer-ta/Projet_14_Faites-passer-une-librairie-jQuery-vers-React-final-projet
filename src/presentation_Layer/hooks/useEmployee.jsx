@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-// import { useLocation } from 'react-router-dom';
+
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -32,9 +32,10 @@ export default function useEmployee() {
 
     if (errorValidationInfo) {
       setErrorValidation({ ...errorValidationInfo });
-
+  
       return;
     } else {
+      console.log('start-----');
       profileService.addEmployeeToRedux(addEmployee, newEmployee);
     }
 

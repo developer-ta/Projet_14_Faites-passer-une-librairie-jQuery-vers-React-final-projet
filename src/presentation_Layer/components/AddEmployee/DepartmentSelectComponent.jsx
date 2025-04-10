@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import 'dayjs/locale/fr';
-import { Autocomplete, Box, Button, Container, InputBase, TextField } from '@mui/material';
-import { FormControl, InputLabel, Input } from '@mui/material';
+import { Autocomplete, Box, TextField } from '@mui/material';
+import { InputLabel } from '@mui/material';
 
 const department = ['Sales', 'Marketing', 'Engineering', 'Human ResourcesLegal', 'Legal'];
 
-export const DepartmentSelectComponent = ({}) => {
-  console.log('testRendre: ', 'testRendre');
+export const DepartmentSelectComponent = () => {
+
   const [selectedData, setSelectedData] = useState(department[0]);
   return (
     <Box

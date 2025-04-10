@@ -5,10 +5,9 @@ export default class employeeService {
     this._model = model;
   }
   //new futcher
-  addEmployeeToRedux(AddAction, newEmployeeData) {
-    formEvent.preventDefault();
-    const formData = formEvent.target.elements;
-    console.log('formData: ', formData);
+  addEmployeeToRedux(addAction, newEmployeeData) {
+    this._dispatch(addAction({ ...newEmployeeData }));
+    console.log('this._state: ', this._state);
   }
   getValuesInput(formEvent) {
     formEvent.preventDefault();
@@ -39,7 +38,7 @@ export default class employeeService {
   }
   _validateDate(date) {
     const pattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
-    const isNoValid = date && pattern.test(date) ? true : false;
+    const isNoValid = date && pattern.test(date) ? false : true;
     if (isNoValid) return { isNoValid, message: 'Veuillez sélectionner une date' };
     return undefined;
   }
