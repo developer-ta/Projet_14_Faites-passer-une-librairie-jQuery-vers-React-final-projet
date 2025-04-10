@@ -23,6 +23,7 @@ export const DatePickerComponent = () => {
 
   const [date, setDate] = useState(null);
   const [value, setValue] = useState(null);
+  console.log('DatePickerComponent');
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
       <DatePicker

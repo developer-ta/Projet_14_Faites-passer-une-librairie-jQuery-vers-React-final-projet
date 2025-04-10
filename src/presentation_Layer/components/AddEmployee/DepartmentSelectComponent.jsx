@@ -6,7 +6,8 @@ import { FormControl, InputLabel, Input } from '@mui/material';
 
 const department = ['Sales', 'Marketing', 'Engineering', 'Human ResourcesLegal', 'Legal'];
 
-export const DepartmentSelectComponent = () => {
+export const DepartmentSelectComponent = ({}) => {
+  console.log('testRendre: ', 'testRendre');
   const [selectedData, setSelectedData] = useState(department[0]);
   return (
     <Box
