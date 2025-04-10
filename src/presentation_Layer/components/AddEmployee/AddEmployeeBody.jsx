@@ -18,7 +18,12 @@ const textFieldStyle = {
 };
 
 export default function AddEmployeeBody() {
-  const { setProfile, isFirstNameValid } = useEmployee();
+  console.log('-----------------------------------------------');
+  const { setProfile, ValideFirstNameRes, ValideLastNameRes, ValideCityRes, ValideZipCodeRes } =
+    useEmployee();
+  console.log('ValideZipCodeResooo: ', ValideZipCodeRes);
+  console.log('ValideCityResdddd: ', ValideCityRes);
+
   return (
     <main className="main-AddEmployee container">
       <h3>Create Employee</h3>
@@ -30,8 +35,8 @@ export default function AddEmployeeBody() {
         }}
       >
         <TextField
-          error
-          helperText={''}
+          error={ValideFirstNameRes?.isNoValid || false}
+          helperText={ValideFirstNameRes?.message || ''}
           required
           id="first-name"
           placeholder="First Name"
@@ -41,8 +46,8 @@ export default function AddEmployeeBody() {
         />
 
         <TextField
-          error
-          helperText={''}
+          error={ValideLastNameRes?.isNoValid || false}
+          helperText={ValideLastNameRes?.message || ''}
           required
           id="last-name"
           placeholder="Last Name"
@@ -50,7 +55,7 @@ export default function AddEmployeeBody() {
           sx={textFieldStyle}
         />
         <DatePickerComponent />
-        <AddressComponent />
+        <AddressComponent ValideCityRes={ValideCityRes} ValideZipCodeRes={ValideZipCodeRes} />
         <DepartmentSelectComponent />
         <Modal></Modal>
         <Button

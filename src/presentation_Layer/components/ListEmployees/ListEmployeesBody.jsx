@@ -82,21 +82,9 @@ const paginationModel = { page: 0, pageSize: 5 };
 
 export default function DataTable() {
   const rowsConstructor = useCallback((list) =>
-    list.map(
-      (el, index) =>
-        new EmployeeProfile(
-          index,
-          el.lastName,
-          el.firstName,
-          el.startDate,
-          el.department,
-          el.dateOfBirth,
-          el.street,
-          el.city,
-          el.state,
-          el.zipCode
-        )
-    )
+    list.map((el, index) => {
+      el;
+    })
   );
   return (
     // <main className="container">
@@ -124,10 +112,10 @@ export default function DataTable() {
           Current Employees
         </Typography>
         <DataGrid
-          rows={rowsConstructor(rows)}
+          rows={rows}
           columns={columns}
           // checkboxSelection
-           initialState={{ pagination: { paginationModel } }}
+          initialState={{ pagination: { paginationModel } }}
           pageSizeOptions={[5, 10]}
           getRowId={(row) => row.id}
           slots={{ toolbar: GridToolbar }}
@@ -136,7 +124,11 @@ export default function DataTable() {
               showQuickFilter: true,
             },
           }}
-          sx={{ boxShadow: '0 0px 8px 0  rgb(209, 212, 212);', textAlign: 'center' ,background:'rgba(238, 239, 239, 0.62)'}}
+          sx={{
+            boxShadow: '0 0px 8px 0  rgb(209, 212, 212);',
+            textAlign: 'center',
+            background: 'rgba(238, 239, 239, 0.62)',
+          }}
         />
       </Box>
     </main>

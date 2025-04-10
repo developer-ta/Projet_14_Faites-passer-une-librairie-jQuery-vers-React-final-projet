@@ -5,7 +5,7 @@ export default class employeeService {
     this._model = model;
   }
   //new futcher
-  addEmployeeToRedux(AddAction, formEvent) {
+  addEmployeeToRedux(AddAction, newEmployeeData) {
     formEvent.preventDefault();
     const formData = formEvent.target.elements;
     console.log('formData: ', formData);
@@ -26,11 +26,12 @@ export default class employeeService {
     return this._model;
   }
   _validateInputText(text) {
-    const pattern = /[A-za-z]/;
-    const isValid = text && pattern.test(text) ? true : false;
-    if (isValid)
+    const pattern = /^[A-za-z]+$/;
+    const isNoValid = text && pattern.test(text) ? false : true;
+
+    if (isNoValid)
       return {
-        isValid,
+        isNoValid,
         message:
           "Veuillez vous assurer que le champ ne contient que des lettres, sans chiffres ni caractères spéciaux, et qu'il n'est pas vide.",
       };
@@ -38,38 +39,60 @@ export default class employeeService {
   }
   _validateDate(date) {
     const pattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
-    const isValid = date && pattern.test(date) ? true : false;
-    if (isValid) return { isValid, message: 'Veuillez sélectionner une date' };
+    const isNoValid = date && pattern.test(date) ? true : false;
+    if (isNoValid) return { isNoValid, message: 'Veuillez sélectionner une date' };
     return undefined;
   }
   _validateInputAddress(address) {
-    const pattern = /[A-za-z0-9]/;
-    const isValid = date && pattern.test(email) ? true : false;
-    if (isValid) return { isValid, message: 'Veuillez sélectionner une address' };
+    const pattern = /^[A-za-z0-9]+$/;
+    const isNoValid = address && pattern.test(address) ? false : true;
+    if (isNoValid) return { isNoValid, message: 'Veuillez sélectionner une address' };
+
     return undefined;
   }
   _validateInputZipCode(zipCode) {
-    const pattern = /[0-9]\d{5}/;
-    const isValid = date && pattern.test(email) ? true : false;
-    if (isValid) {
+    const pattern = /\d{5}/;
+    const isNoValid = zipCode && pattern.test(zipCode) ? false : true;
+    console.log('isNoValid:zip ', isNoValid);
+    if (isNoValid) {
       return {
-        isValid,
+        isNoValid,
         message:
-          'Assurez-vous que le champ est rempli uniquement avec des nombres, sans lettres ni caractères spéciaux  ni doit pas être vide',
+          "Veuillez vous assurer que le champ contient au moins 5 chiffres et qu'il ne contient que des chiffres (sans lettres ni caractères spéciaux).",
       };
     }
     return undefined;
   }
   checkInput(newEmployeeData) {
-    let ValideInputResponse;
-    ValideFirstNameRes = this._validateInputText(newEmployeeData.firstName) || undefined;
-    ValideLastNameRes = this._validateInputText(newEmployeeData.lastName) || undefined;
-    ValideDateOfBirthRes = this._validateDate(newEmployeeData.dateOfBirth) || undefined;
-    ValideStartDateRes = this._validateInputText(newEmployeeData.startDate) || undefined;
-    ValideFirstNameRes = this._validateInputText(newEmployeeData.firstName) || undefined;
-    ValideFirstNameRes = this._validateInputText(newEmployeeData.firstName) || undefined;
-
-    return isValideInput;
+    const ValideFirstNameRes = this._validateInputText(newEmployeeData.firstName) || undefined;
+    const ValideLastNameRes = this._validateInputText(newEmployeeData.lastName) || undefined;
+    const ValideDateOfBirthRes = this._validateDate(newEmployeeData.dateOfBirth) || undefined;
+    const ValideStartDateRes = this._validateDate(newEmployeeData.startDate) || undefined;
+    // ValideStateRes = this._validateInputText(newEmployeeData.state) || undefined;
+    const ValideStreetRes = this._validateInputAddress(newEmployeeData.street) || undefined;
+    const ValideCityRes = this._validateInputText(newEmployeeData.City) || undefined;
+    const ValideZipCodeRes = this._validateInputZipCode(newEmployeeData.zipCode) || undefined;
+    // ValideDepartmentRes = this._validateInputText(newEmployeeData.department) || undefined;
+    if (
+      ValideFirstNameRes ||
+      ValideLastNameRes ||
+      ValideDateOfBirthRes ||
+      ValideStartDateRes ||
+      ValideStreetRes ||
+      ValideCityRes ||
+      ValideZipCodeRes
+    ) {
+      return {
+        ValideFirstNameRes,
+        ValideLastNameRes,
+        ValideDateOfBirthRes,
+        ValideStartDateRes,
+        // ValideStreetRes,
+        ValideCityRes,
+        ValideZipCodeRes,
+      };
+    }
+    return undefined;
   }
   validateEmail(email) {
     const pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;

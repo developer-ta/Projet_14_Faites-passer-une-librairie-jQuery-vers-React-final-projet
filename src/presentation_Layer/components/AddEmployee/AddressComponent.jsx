@@ -2,7 +2,7 @@ import { useState } from 'react';
 import 'dayjs/locale/fr';
 import { Autocomplete, Box, Button, Container, InputBase, TextField } from '@mui/material';
 import {  InputLabel, Input } from '@mui/material';
-
+import useEmployee from '../../hooks/useEmployee';
 
 const states = [
   {
@@ -249,13 +249,22 @@ const textFieldStyle = {
   marginTop: '1rem',
 };
 
-export const AddressComponent = () => {
+export const AddressComponent = ({ ValideCityRes, ValideZipCodeRes }) => {
   const [selectedData, setSelectedData] = useState(states[0]);
+
   return (
     <fieldset className="address">
       <legend>Address</legend>
-      <TextField error helperText={''} id="street" placeholder="Street" size="small" sx={textFieldStyle} />
-      <TextField error helperText={''} id="city" placeholder="City" size="small" sx={textFieldStyle} />
+      <TextField required id="street" placeholder="Street" size="small" sx={textFieldStyle} />
+      <TextField
+        required
+        error={ValideCityRes?.isNoValid || false}
+        helperText={ValideCityRes?.message || ''}
+        id="city"
+        placeholder="City"
+        size="small"
+        sx={textFieldStyle}
+      />
       <Box
         display={'flex'}
         justifyContent={'space-around'}
@@ -263,7 +272,7 @@ export const AddressComponent = () => {
         alignItems={'center'}
         flexDirection={'column'}
       >
-        <InputLabel  className={'inputLabel'}>State</InputLabel>
+        <InputLabel className={'inputLabel'}>State</InputLabel>
         <Autocomplete
           id="state"
           size="small"
@@ -280,17 +289,20 @@ export const AddressComponent = () => {
           value={selectedData}
         />
         <InputLabel className={'inputLabel'}>Zip Code</InputLabel>{' '}
-        <Input
+        <TextField
           id="zip-code"
           type="number"
+          required
+          error={ValideZipCodeRes?.isNoValid || false}
+          helperText={ValideZipCodeRes?.message || ''}
           placeholder="94320"
-          disableUnderline="false"
+          size="small"
           sx={{
             backgroundColor: 'whitesmoke',
             width: '65%',
             borderRadius: '4px',
           }}
-        ></Input>
+        />
       </Box>
     </fieldset>
   );

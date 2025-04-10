@@ -54,6 +54,10 @@ legend {
   color: white;
   font-weight: 700;
 }
+#first-name-helper-text {
+  color: red;
+  text-align: center;
+}
 @media screen and (min-width: 769px) {
   form#create-employee {
     width: 35%;

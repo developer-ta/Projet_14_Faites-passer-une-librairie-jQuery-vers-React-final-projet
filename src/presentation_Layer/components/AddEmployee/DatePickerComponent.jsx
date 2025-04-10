@@ -6,6 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import 'dayjs/locale/fr';
 import { TextField } from '@mui/material';
+import useEmployee from '../../hooks/useEmployee';
 
 const textFieldStyle = {
   backgroundColor: 'whitesmoke',
@@ -18,6 +19,8 @@ const datePickerStyle = {
 };
 
 export const DatePickerComponent = () => {
+  const { ValideDateOfBirthRes, ValideStartDateRes } = useEmployee();
+
   const [date, setDate] = useState(null);
   const [value, setValue] = useState(null);
   return (
@@ -29,18 +32,34 @@ export const DatePickerComponent = () => {
         // defaultValue={dayjs(new Date())}
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
-        slotProps={{ textField: { placeholder: 'Date of Birth', color: 'black',required: true ,error:true,helperText:'' } }}
+        slotProps={{
+          textField: {
+            placeholder: 'Date of Birth',
+            color: 'black',
+            required: true,
+            error: ValideDateOfBirthRes?.isNoValid || false,
+            helperText: ValideDateOfBirthRes?.message || '',
+          },
+        }}
       />
       <DatePicker
         // label="Dash separator"
         // value={date}
 
-        renderInput={(params) => <TextField  {...params} required />}
+        renderInput={(params) => <TextField {...params} required />}
         format="DD/MM/YYYY"
         // defaultValue={dayjs(new Date())}
         onChange={(newDate) => setDate((d) => (d = newDate))}
         sx={datePickerStyle}
-        slotProps={{ textField: { placeholder: 'start-date', required: true ,error:true} }}
+        slotProps={{
+          textField: {
+            placeholder: 'start-date',
+            color: 'black',
+            required: true,
+            error: ValideStartDateRes?.isNoValid || false,
+            helperText: ValideStartDateRes?.message || '',
+          },
+        }}
       />
     </LocalizationProvider>
   );

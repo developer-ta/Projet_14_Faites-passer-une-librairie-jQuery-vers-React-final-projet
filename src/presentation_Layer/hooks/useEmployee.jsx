@@ -1,14 +1,15 @@
-import { useCallback, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+// import { useLocation } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import employeeService from '../../application_Layer/services/employeeService';
 import EmployeeProfile from '../../domain_Layer/employee';
+import { addEmployee } from '../../infrastructure_Layer/redux/slices/employee/employeeProfile';
 
 export default function useEmployee() {
-  const { state } = useLocation();
   const { employeeProfileList } = useSelector((state) => state.employeeProfileReducer);
+  const [ErrorValidation, setErrorValidation] = useState({});
 
   const dispatch = useDispatch();
   const profileService = new employeeService(employeeProfileList, dispatch, new EmployeeProfile());
@@ -27,7 +28,15 @@ export default function useEmployee() {
   //application layer
   const setProfile = useCallback((e) => {
     const newEmployee = profileService.getValuesInput(e);
-    const validationInfo = profileService.checkInput(newEmployee);
+    const errorValidationInfo = profileService.checkInput(newEmployee);
+
+    if (errorValidationInfo) {
+      setErrorValidation({ ...errorValidationInfo });
+
+      return;
+    } else {
+      profileService.addEmployeeToRedux(addEmployee, newEmployee);
+    }
 
     // loginData.passWord = formLoginData.password.value;
     // loginData.email = formLoginData.username.value;
@@ -73,5 +82,6 @@ export default function useEmployee() {
 
   return {
     setProfile,
+    ...ErrorValidation,
   };
 }
