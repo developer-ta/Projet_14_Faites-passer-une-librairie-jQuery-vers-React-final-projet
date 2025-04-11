@@ -43,7 +43,7 @@ export default class employeeService {
     return undefined;
   }
   _validateInputAddress(address) {
-    const pattern = /^[A-za-z0-9]+$/;
+    const pattern = /^[A-za-z0-9 ]+$/;
     const isNoValid = address && pattern.test(address) ? false : true;
     if (isNoValid) return { isNoValid, message: 'Veuillez sélectionner une address' };
 
@@ -86,7 +86,7 @@ export default class employeeService {
         ValideLastNameRes,
         ValideDateOfBirthRes,
         ValideStartDateRes,
-        // ValideStreetRes,
+         ValideStreetRes,
         ValideCityRes,
         ValideZipCodeRes,
       };

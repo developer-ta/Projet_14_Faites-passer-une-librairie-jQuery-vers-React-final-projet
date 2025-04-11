@@ -25,11 +25,15 @@ export default function useEmployee() {
 
       if (errorValidationInfo) {
         setErrorValidation({ ...errorValidationInfo });
+        console.log('errorValidationInfo: ', errorValidationInfo);
 
+        alert("errorValidationInfo");
         return;
       } else {
         
         profileService.addEmployeeToRedux(addEmployee, newEmployee);
+        console.log('addEmployee: ', 'addEmployeeToRedux');
+        alert(newEmployee);
       }
     },
     [profileService]
