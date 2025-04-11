@@ -2,7 +2,7 @@ import { useState } from 'react';
 import 'dayjs/locale/fr';
 import { Autocomplete, Box,  TextField } from '@mui/material';
 import {  InputLabel } from '@mui/material';
-
+import PropTypes from 'prop-types';
 
 const states = [
   {
@@ -282,8 +282,7 @@ export const AddressComponent = ({ ValideCityRes, ValideZipCodeRes }) => {
             width: '85%',
             borderRadius: '4px',
           }}
-           renderInput={(params) => <TextField {...params} />}
-         
+          renderInput={(params) => <TextField {...params} />}
           onChange={(e, newValue) => {
             setSelectedData(newValue.label);
           }}
@@ -307,4 +306,15 @@ export const AddressComponent = ({ ValideCityRes, ValideZipCodeRes }) => {
       </Box>
     </fieldset>
   );
+};
+
+AddressComponent.propTypes = {  
+  ValideCityRes: PropTypes.shape({  
+      isNoValid: PropTypes.bool.isRequired,  
+      message: PropTypes.string.isRequired,  
+  }).isRequired,  
+  ValideZipCodeRes: PropTypes.shape({  
+      isNoValid: PropTypes.bool.isRequired,  
+      message: PropTypes.string.isRequired,  
+  }).isRequired,  
 };

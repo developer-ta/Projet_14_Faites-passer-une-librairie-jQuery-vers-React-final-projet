@@ -1,7 +1,6 @@
  import './ListEmployeesBody.scss';
 
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-
 import { useCallback } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
@@ -58,6 +57,7 @@ const columns = [
 ];
 
 export default function DataTable() {
+
   const { employeeProfile } = useSelector((state) => state.employeeProfileReducer);
 
   const rowsConstructor = useCallback(
@@ -65,7 +65,7 @@ export default function DataTable() {
       list.map((el, index) => {
         return { ...el, id: `${index}-${el.firstName}-${el.lastName}-(${el.state})` };
       }),
-    [employeeProfile]
+    []
   );
 
   console.log(' rowsConstructor(employeeProfile): ', rowsConstructor(employeeProfile));

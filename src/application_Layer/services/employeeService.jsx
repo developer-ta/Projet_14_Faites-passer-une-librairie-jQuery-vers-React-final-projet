@@ -7,7 +7,6 @@ export default class employeeService {
   //new futcher
   addEmployeeToRedux(addAction, newEmployeeData) {
     this._dispatch(addAction({ ...newEmployeeData }));
-    console.log('this._state: ', this._state);
   }
   getValuesInput(formEvent) {
     formEvent.preventDefault();
