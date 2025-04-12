@@ -66,3 +66,8 @@ legend {
     width: 35%;
   }
 }
+.m{@media screen and (min-width: 769px) {
+  form#create-employee {
+    width: 35%;
+  }
+}}

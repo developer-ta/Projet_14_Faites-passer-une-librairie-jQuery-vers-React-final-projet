@@ -68,7 +68,7 @@ export default function DataTable() {
     []
   );
 
-  console.log(' rowsConstructor(employeeProfile): ', rowsConstructor(employeeProfile));
+
   return (
     <main className="container">
       {' '}
