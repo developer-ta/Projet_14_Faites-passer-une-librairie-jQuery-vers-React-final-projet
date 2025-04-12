@@ -22,7 +22,7 @@ Ce projet est une conversion d'un ancien projet développé en jQuery vers une v
 ## Fonctionnalités  
 
 - **Conversion de projet** : Le projet initial, qui était basé sur jQuery, a été entièrement converti en une application React.  
-- **Utilisation de Modals MUI** : Pour les interactions qui nécessitaient des modals, j'ai utilisé le composant `Modal` de MUI à la place de l'ancienne implémentation jQuery.  
+- **Utilisation de Modals personnelle publiée npm packages** : Pour les interactions qui nécessitaient des modals, j'ai utilisé le composant `Modal` de personnelle à la place de l'ancienne implémentation jQuery.  
 - **Interfaces Utilisateur Modernes** : Grâce à MUI, l'application bénéficie d'une interface utilisateur plus moderne et réactive par rapport à l'interface utilisateur précédente basée sur jQuery.  
 
 ---
