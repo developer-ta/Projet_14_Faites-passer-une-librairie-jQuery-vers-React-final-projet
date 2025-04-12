@@ -33,7 +33,7 @@
     "react-router-dom": "^7.2.0",
     "sass": "^1.85.0",
     "styled-components": "^6.1.16",
-    "tui-react-bib": "^1.0.4"
+    "tui-react-bib": "^1.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
