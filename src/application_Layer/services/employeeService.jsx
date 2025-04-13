@@ -4,7 +4,7 @@ export default class employeeService {
     this._dispatch = dispatch;
     this._model = model;
   }
-  //new futcher
+
   addEmployeeToRedux(addAction, newEmployeeData) {
     this._dispatch(addAction({ ...newEmployeeData }));
   }
@@ -20,7 +20,6 @@ export default class employeeService {
     this._model.state = formEvent.target.elements[15].value;
     this._model.zipCode = formEvent.target.elements[19].value;
     this._model.department = formEvent.target.elements[21].value;
-   
 
     return this._model;
   }
@@ -52,7 +51,7 @@ export default class employeeService {
   _validateInputZipCode(zipCode) {
     const pattern = /\d{5}/;
     const isNoValid = zipCode && pattern.test(zipCode) ? false : true;
- 
+
     if (isNoValid) {
       return {
         isNoValid,
@@ -86,38 +85,11 @@ export default class employeeService {
         ValideLastNameRes,
         ValideDateOfBirthRes,
         ValideStartDateRes,
-         ValideStreetRes,
+        ValideStreetRes,
         ValideCityRes,
         ValideZipCodeRes,
       };
     }
     return undefined;
-  }
-  validateEmail(email) {
-    const pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
-    const isValid = pattern.test(email);
-    return isValid;
-  }
-  async getProfileData(token) {
-    const { body } = await this._userProfileRepo.postUserToken(token);
-
-    return body;
-  }
-
-  getToken() {
-    const token = localStorage.getItem('authToken');
-    return token;
-  }
-
-  async updateProfile(token, data) {
-    if (token) {
-      const res = await this._userProfileRepo.putUserProfile(token, data);
-
-      return res.body;
-    }
-  }
-
-  redirectionToLogin(navigate) {
-    navigate('/login');
   }
 }

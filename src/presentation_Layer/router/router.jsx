@@ -40,6 +40,6 @@ export const router = createBrowserRouter([
   {
     path: '*',
     element: <home />,
-    // children: [{ path: 'home', element: <></>, children: [] }],
+
   },
 ]);
