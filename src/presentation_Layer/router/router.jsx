@@ -3,7 +3,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import HomeBody from './../components/home/HomeBody';
 import Home from '../pages/Home';
 
-
 import AddEmployee from '../pages/AddEmployee';
 import AddEmployeeBody from '../components/AddEmployee/AddEmployeeBody';
 import ListEmployees from '../pages/ListEmployees';
